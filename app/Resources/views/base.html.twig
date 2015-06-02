@@ -2,12 +2,23 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />		
+	<title>{% block title %}Foundation{% endblock %}</title>	
+        {% stylesheets 
+			'../app/Resources/assets/bower_components/foundation/css/foundation.css'
+		%}
+			<link rel="stylesheet" href="{{ asset_url }}" />		
+		{% endstylesheets %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+	{% javascripts
+		'../app/Resources/assets/bower_components/modernizr/modernizr.js'		
+		'../app/Resources/assets/bower_components/foundation/js/foundation.min.js'
+		'../app/Resources/assets/bower_components/jquery/dist/jquery.min.js'
+	%}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+	{% endjavascripts %}
     </body>
 </html>
